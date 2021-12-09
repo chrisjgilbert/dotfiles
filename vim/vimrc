@@ -2,6 +2,35 @@
 syntax on
 filetype plugin indent on
 
+" Set Space as leader key
+let mapleader = "\<Space>"
+
+" Mix format on save
+let g:mix_format_on_save = 1
+
+" Access vimrc and then source it
+nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+" Override default scroll down/up when text wraps
+nmap k gk
+nmap j gj
+
+" Map ^ to 0
+nmap 0 ^
+
+" Map :Files to ctl+p
+nnoremap <C-p> :GFiles<Cr>
+
+" Map :Ag to ctrl + g
+nnoremap <C-g> :Ag<Cr>
+
+" Copy relative path of file to clipboard
+nnoremap <leader>cf :!echo -n % \| pbcopy<cr>
+
+" Copy to system clipboard
+set clipboard=unnamed
+
 " Show line numbers
 set number
 
@@ -18,15 +47,6 @@ set relativenumber
 set splitbelow
 set splitright
 
-" Map :Files to ctl+p
-nnoremap <C-p> :GFiles<Cr>
-
-" Map :Ag to ctrl + g
-nnoremap <C-g> :Ag<Cr>
-
-" Mix format on save
-let g:mix_format_on_save = 1
-
 " Plugins
 call plug#begin()
 
@@ -37,5 +57,7 @@ Plug 'valloric/youcompleteme'
 Plug 'mhinz/vim-mix-format'
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
