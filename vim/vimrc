@@ -1,0 +1,41 @@
+" Turn on syntax highlighting
+syntax on
+filetype plugin indent on
+
+" Show line numbers
+set number
+
+" Keep 10 lines below and above the cursor
+set scrolloff=10
+
+" Show current line number
+set number
+
+" Show relative line numbers
+set relativenumber
+
+" Open new split panes to right and bottom
+set splitbelow
+set splitright
+
+" Map :Files to ctl+p
+nnoremap <C-p> :GFiles<Cr>
+
+" Map :Ag to ctrl + g
+nnoremap <C-g> :Ag<Cr>
+
+" Mix format on save
+let g:mix_format_on_save = 1
+
+" Plugins
+call plug#begin()
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'valloric/youcompleteme'
+Plug 'mhinz/vim-mix-format'
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
