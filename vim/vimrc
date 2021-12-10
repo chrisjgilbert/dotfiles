@@ -15,6 +15,12 @@ let mapleader = "\<Space>"
 " Mix format on save
 let g:mix_format_on_save = 1
 
+" Fix files with prettier, and then ESLint.
+let g:ale_fixers = ['prettier', 'eslint', 'stylelint']
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
 " Access vimrc and then source it
 nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
@@ -76,6 +82,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
