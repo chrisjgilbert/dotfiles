@@ -1,6 +1,13 @@
 " Turn on syntax highlighting
 syntax on
 filetype plugin indent on
+set termguicolors
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+" Don't use italics (doesn't work)
+let g:dracula_italic = 0
 
 " Set Space as leader key
 let mapleader = "\<Space>"
@@ -47,17 +54,29 @@ set relativenumber
 set splitbelow
 set splitright
 
+" Fzf
+let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor,_build}/*"'
+let $FZF_DEFAULT_OPTS="--height=50% --layout=reverse --info=inline --preview='cat {}' --preview-window=right:60%:wrap"
+command! -bang -nargs=? -complete=dir Files
+     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 " Plugins
 call plug#begin()
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'elixir-editors/vim-elixir'
-Plug 'valloric/youcompleteme'
 Plug 'mhinz/vim-mix-format'
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
+
+colorscheme dracula
