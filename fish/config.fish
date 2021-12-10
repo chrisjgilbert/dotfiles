@@ -50,7 +50,7 @@ starship init fish | source
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.10/bin" "$PATH"
 
 # Add Platform elm binary to $PATH
-set PATH /Users/chrisgilbert/Projects/platform/assets/node_modules/.bin $PATH
+set PATH $HOME/projects/platform/assets/node_modules/.bin $PATH
 
 # Keep iex history
 set -x ERL_AFLAGS "-kernel shell_history enabled"
