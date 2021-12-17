@@ -2,22 +2,29 @@
 fish_vi_key_bindings "default"
 
 # Aliases
-alias v="vim"
+alias v="nvim"
 alias c="code"
-alias vimrc="vim ~/projects/dotfiles/vim/vimrc"
-alias fishrc="vim ~/.config/fish/config.fish"
+alias vimrc="nvim ~/.config/nvim/init.vim"
+alias fishrc="nvim ~/.config/fish/config.fish"
+
+## Git
+alias g="git"
 alias gpull="git pull"
 alias gpush="git push"
-alias platform="cd ~/projects/platform"
-alias mt="mix test"
-alias mps="mix phx.server"
-alias mcr="mix clean_run"
-alias g="git"
 alias ga="git add"
 alias gd="git diff"
 alias gs="git status"
-alias gcm="git commit -m"
+alias gco="git commit"
 alias gc="git checkout"
+
+## Common projects
+alias platform="cd ~/projects/platform"
+alias dotfiles="cd ~/projects/dotfiles"
+
+## Elixir/Mix
+alias mt="mix test"
+alias mps="mix phx.server"
+alias mcr="mix clean_run"
 alias mtw="mix test.watch"
 
 # Fish syntax highlighting
@@ -45,15 +52,13 @@ source ~/.asdf/asdf.fish
 # Setting starship prompt
 starship init fish | source
 
-# Setting PATH for Python 3.10
-# The original version is saved in /Users/chrisgilbert/.config/fish/config.fish.pysave
+# Environment variables
+## Setting PATH for Python 3.10
+## The original version is saved in /Users/chrisgilbert/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.10/bin" "$PATH"
 
-# Add Platform elm binary to $PATH
+## Add Platform elm binary to $PATH
 set PATH $HOME/projects/platform/assets/node_modules/.bin $PATH
 
-# Keep iex history
+## Keep iex history
 set -x ERL_AFLAGS "-kernel shell_history enabled"
-
-# Use Dracula theme for bat
-set BAT_THEME "Dracula"
