@@ -1,39 +1,51 @@
-" Turn on syntax highlighting
-syntax on
+set nocompatible
+
+" Plugind
+call plug#begin()
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
+call plug#end()
+
+" General
 filetype plugin indent on
-set termguicolors
-
-" air-line
-let g:airline_powerline_fonts = 1
-
-" Don't use italics (doesn't work)
-let g:dracula_italic = 0
+set tabstop=2
+set softtabstop=2
+set expandtab
+set shiftwidth=2
+inoremap jk <ESC>
 
 " Set Space as leader key
 let mapleader = "\<Space>"
 
 " Mix format on save
 let g:mix_format_on_save = 1
-
-" Fix files with prettier, and then ESLint.
-let g:ale_fixers = ['prettier', 'eslint', 'stylelint']
-
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
+let g:mix_format_silent_errors = 1
 
 " Access vimrc and then source it
 nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 
+"Remove whitespace at the end ofthe line
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Override default scroll down/up when text wraps
-nmap k gk
-nmap j gj
+" nmap k gk
+" nmap j gj
 
 " Map ^ to 0
 nmap 0 ^
 
 " Map :Files to ctl+p
-nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-p> :Files<Cr>
 
 " Map :Ag to ctrl + g
 nnoremap <C-g> :Ag<Cr>
@@ -50,9 +62,6 @@ set number
 " Keep 10 lines below and above the cursor
 set scrolloff=10
 
-" Show current line number
-set number
-
 " Show relative line numbers
 set relativenumber
 
@@ -60,32 +69,15 @@ set relativenumber
 set splitbelow
 set splitright
 
-" Fzf
-let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor,_build}/*"'
-let $FZF_DEFAULT_OPTS="--height=50% --layout=reverse --info=inline --preview='cat {}' --preview-window=right:60%:wrap"
-command! -bang -nargs=? -complete=dir Files
-     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-" Plugins
-call plug#begin()
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
-Plug 'vim-test/vim-test'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'sheerun/vim-polyglot'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dense-analysis/ale'
-
-call plug#end()
-
-colorscheme dracula
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+let g:lightline = { 'colorscheme': 'onehalfdark' }
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+  hi Linebr ctermbg=NONE guibg=NONE
+endif
