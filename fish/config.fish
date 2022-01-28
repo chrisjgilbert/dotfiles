@@ -1,6 +1,3 @@
-# Use vi key bindings, start in normal mode
-fish_vi_key_bindings "default"
-
 # Aliases
 alias v="nvim"
 alias c="code"
@@ -15,6 +12,7 @@ alias ga="git add"
 alias gd="git diff"
 alias gs="git status"
 alias gco="git commit"
+alias gcm="git commit -m"
 alias gc="git checkout"
 
 ## Common projects
