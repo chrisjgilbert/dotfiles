@@ -1,0 +1,73 @@
+{
+	"auto-rename-tag.activationOnLanguage": [
+		"html",
+		"xml",
+		"phoenix-heex",
+		"html-eex",
+		"svelte",
+		"javascript"
+	],
+	"auto-close-tag.SublimeText3Mode": true,
+	"debug.console.fontSize": 13,
+	"editor.fontSize": 13,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[elixir]": {
+		"editor.defaultFormatter": "JakeBecker.elixir-ls"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"editor.wordWrap": "on",
+	"editor.minimap.enabled": false,
+	"editor.formatOnSave": true,
+	"editor.wordBasedSuggestions": false,
+	"editor.trimAutoWhitespace": false,
+	"editor.occurrencesHighlight": false,
+	"editor.selectionHighlight": false,
+	"editor.guides.highlightActiveIndentation": false,
+	"editor.foldingHighlight": false,
+	"elixirLS.dialyzerEnabled": true,
+	"elixirLS.signatureAfterComplete": false,
+	"elixirLS.fetchDeps": false,
+	"elixirLS.suggestSpecs": false,
+	"emmet.triggerExpansionOnTab": true,
+	"emmet.includeLanguages": {
+		"html-eex": "html",
+		"phoenix-heex": "html"
+	},
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"terminal.integrated.fontSize": 14,
+	"workbench.startupEditor": "none",
+	"workbench.colorTheme": "One Dark Pro Darker",
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.editor.highlightModifiedTabs": true,
+	"editor.detectIndentation": false,
+	"editor.tabSize": 2,
+	"editor.cursorSurroundingLines": 10,
+	"terminal.integrated.cursorBlinking": true,
+	"editor.cursorStyle": "line",
+	"files.associations": {
+		"*.mvx": "eex",
+		"*.eex": "eex",
+		"*.heex": "phoenix-heex"
+	},
+	"editor.parameterHints.enabled": false,
+	"editor.suggest.snippetsPreventQuickSuggestions": false,
+	"html.suggest.html5": false,
+	"[phoenix-heex]": {
+		"editor.defaultFormatter": "RoyalMist.vscode-eex-format"
+	}
+}
